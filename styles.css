@@ -18,6 +18,7 @@ body{
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
+    margin-bottom: 40px;
 }
 
 .logo img{
@@ -74,6 +75,14 @@ body{
 
 .search button img{
     width: 16px;   
+}
+
+.error{
+    display: none;
+    text-align: left;
+    margin-left: 10px;
+    font-size: 14px;
+    margin-top: 10px;
 }
 
 .weather{
