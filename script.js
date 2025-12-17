@@ -18,9 +18,9 @@ async function checkWeather(city) {
 
     if(data.weather[0].main === "Clouds"){
         weatherIcon.src = "images/clouds.png"
-    }else if(data.weather[0].main === "Haze"){
+    }else if(data.weather[0].main === "Haze" || data.weather[0].main === "Smoke" || data.weather[0].main === "Mist"){
         weatherIcon.src = "images/haze.png"
-    }else if(data.weather[0].main === "Clear"){
+    }else if(data.weather[0].main === "Clear" || data.weather[0].main === "Sunny"){
         weatherIcon.src = "images/clear.png"
     }else if(data.weather[0].main === "Drizzle"){
         weatherIcon.src = "images/drizzle.png"
@@ -28,13 +28,11 @@ async function checkWeather(city) {
         weatherIcon.src = "images/partly-cloudy.png"
     }else if(data.weather[0].main === "Snow"){
         weatherIcon.src = "images/snow.png"
-    }else if(data.weather[0].main === "Mist"){
-        weatherIcon.src = "images/haze.png"
-    }else if(data.weather[0].main === "Sunny"){
-        weatherIcon.src = "images/clear.png"
     }else{
         weatherIcon.src = "images/rain.png"
     }
+
+    document.querySelector(".weather").style.display = "block";
 }
 
 searchBtn.addEventListener("click", ()=>{
