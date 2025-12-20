@@ -1,6 +1,8 @@
 import express from "express";
 import fetch from "node-fetch";
 import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
 
 dotenv.config();
 
@@ -22,6 +24,16 @@ app.get("/weather", async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: "Failed to fetch weather data" });
     }
+});
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Serve frontend folder
+app.use(express.static(path.join(__dirname, "../frontend")));
+
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/index.html"));
 });
 
 app.listen(PORT, () => {
